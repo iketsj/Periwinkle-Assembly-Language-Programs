@@ -18,7 +18,7 @@ numberCounter equ gpr31
 Init				numberCount numberCounter
 				placeholderOfNumbersStartAddress ref
 									
-GetRandomNumber		rng def
+GetRandomNumber			rng def
 				ref plus
 				#1 plus
 				plus ref
@@ -28,7 +28,7 @@ GetRandomNumber		rng def
 				numberCounter siz
 				goto GetRandomNumber       
 					
-Reinit			placeholderOfNumbersStartAddress ref
+Reinit				placeholderOfNumbersStartAddress ref
 
 FirstLoopInit			numberCount plus
 				#-1	plus
@@ -45,25 +45,25 @@ FirstLoop			currentSlot xor
 				status and
 				and siz
 				#-1 pc
-                currentSlot addressOfMinimum
-                SecondLoopInit pc
+               			currentSlot addressOfMinimum
+                		SecondLoopInit pc
 
-Swap            placeholderOfNumbersStartAddress plus
-                addressOfMinimum plus
-                plus addressOfFirstNum
-                placeholderOfNumbersStartAddress plus
-                currentSlot plus
-                plus addressOfSecondNum
+Swap            		placeholderOfNumbersStartAddress plus
+                		addressOfMinimum plus
+                		plus addressOfFirstNum
+               			placeholderOfNumbersStartAddress plus
+                		currentSlot plus
+                		plus addressOfSecondNum
                 
-                addressOfFirstNum ref
-                def tempHolder1
-                addressOfSecondNum ref
-                def tempHolder2
+                		addressOfFirstNum ref
+                		def tempHolder1
+                		addressOfSecondNum ref
+                		def tempHolder2
 
-                addressOfFirstNum ref
-                tempHolder2 def
-                addressOfSecondNum ref
-                tempHolder1 def
+                		addressOfFirstNum ref
+                		tempHolder2 def
+                		addressOfSecondNum ref
+                		tempHolder1 def
 
 IncrementFirstLoopIterator	currentSlot plus
 				#1 plus
@@ -72,39 +72,39 @@ IncrementFirstLoopIterator	currentSlot plus
 
 SecondLoopInit			numberCount currentAddressOffsetLimitHolder
 				currentSlot plus
-                #1 plus
-                plus currentAddressOffset
+                		#1 plus
+                		plus currentAddressOffset
 
-SecondLoop          currentAddressOffset xor
-                #-1 xor
-                xor plus
-                #1 plus
-                currentAddressOffsetLimitHolder plus
-                plus null
-                zero and
-                status and
-                and siz
-                Swap pc
+SecondLoop          		currentAddressOffset xor
+                		#-1 xor
+                		xor plus
+                		#1 plus
+                		currentAddressOffsetLimitHolder plus
+                		plus null
+                		zero and
+                		status and
+                		and siz
+                		Swap pc
 
-ValueCheckInit       placeholderOfNumbersStartAddress plus
-                currentAddressOffset plus
-                plus ref
-                def firstNum
-                placeholderOfNumbersStartAddress plus
-                addressOfMinimum plus
-                plus ref
-                def secondNum
+ValueCheckInit       		placeholderOfNumbersStartAddress plus
+                		currentAddressOffset plus
+                		plus ref
+                		def firstNum
+                		placeholderOfNumbersStartAddress plus
+                		addressOfMinimum plus
+                		plus ref
+                		def secondNum
 
-CheckIfFirstNumberIsLess secondNum xor
-                #-1 xor
-                xor plus
-                #1 plus
-                firstNum plus
-                plus null
-                negative and
-                status and
-                and siz
-                currentAddressOffset addressOfMinimum
+CheckIfFirstNumberIsLess 	secondNum xor
+                		#-1 xor
+                		xor plus
+                		#1 plus
+                		firstNum plus
+                		plus null
+                		negative and
+                		status and
+                		and siz
+                		currentAddressOffset addressOfMinimum
                 
 
 IncrementSecondLoopIterator	currentAddressOffset plus
