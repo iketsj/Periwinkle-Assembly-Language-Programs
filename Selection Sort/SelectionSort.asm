@@ -1,5 +1,3 @@
-true equ #-1
-false equ #0
 numberCount equ #10
 placeholderOfNumbersStartAddress equ #32
 tempHolder1 equ gpr20
